@@ -15,7 +15,7 @@ export default {
       return this.game.constantRules.draw;
     },
     play() {
-      return this.game.constantRules.draw;
+      return this.game.constantRules.play;
     },
     goal() {
       return this.game.goal || {};

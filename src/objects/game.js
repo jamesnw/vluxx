@@ -1,19 +1,6 @@
 import { cards } from "./cards";
 import { dealCard } from "./player";
 import _ from "lodash";
-export default class Game {
-  constructor() {
-    this.id = "foo";
-    this.players = [];
-    this.rules = [];
-  }
-  addPlayer(player) {
-    this.players.push(player);
-  }
-  addRule(rule) {
-    this.rules.push(rule);
-  }
-}
 
 export function newGame(name) {
   return {

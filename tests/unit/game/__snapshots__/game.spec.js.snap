@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`game newGame should create basic structure 1`] = `
+Object {
+  "name": "foo",
+  "players": Array [],
+  "rules": Array [],
+}
+`;
+
+exports[`game startGame should set initial static values 1`] = `
+Object {
+  "activePlayer": 0,
+  "constantRules": Object {
+    "draw": 1,
+    "play": 1,
+  },
+  "state": "started",
+  "turn": Object {},
+}
+`;
