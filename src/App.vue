@@ -1,10 +1,7 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
     <router-view />
+    <a class="github" href="https://github.com/jamesnw/vluxx">Github</a>
   </div>
 </template>
 
@@ -25,5 +22,9 @@
       color: #42b983;
     }
   }
+}
+.github {
+  position: absolute;
+  bottom: 0;
 }
 </style>
