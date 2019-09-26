@@ -19,7 +19,7 @@ export function startGame(game) {
     draw: 1,
     play: 1
   };
-  game.turn = {};
+  game.turn = { playsRemaining: 0 };
   // deal
   for (let index = 0; index < 3; index++) {
     game.players.forEach((player, index) => {
@@ -37,7 +37,5 @@ export function gameIsValid(game) {
   var valid = gameValidator(game);
   if (!valid) {
     throw new Error("Invalid game", gameValidator.errors);
-  } else {
-    console.log("valid!");
   }
 }

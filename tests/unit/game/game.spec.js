@@ -12,12 +12,21 @@ describe("game", () => {
     });
   });
   describe("startGame", () => {
+    let initialGame;
+    beforeEach(() => {
+      initialGame = {
+        name: "Foo",
+        players: [],
+        rules: [],
+        discard: []
+      };
+    });
     it("should add cards", () => {
-      let { deck } = startGame({ players: [] });
+      let { deck } = startGame(initialGame);
       expect(deck).toEqual(expect.any(Array));
     });
     it("should set initial static values", () => {
-      let game = startGame({ players: [] });
+      let game = startGame(initialGame);
       game = _.pick(game, ["state", "constantRules", "turn", "activePlayer"]);
       expect(game).toMatchSnapshot();
     });

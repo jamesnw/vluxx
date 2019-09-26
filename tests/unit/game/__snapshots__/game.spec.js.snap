@@ -16,6 +16,8 @@ Object {
     "play": 1,
   },
   "state": "started",
-  "turn": Object {},
+  "turn": Object {
+    "playsRemaining": 0,
+  },
 }
 `;
