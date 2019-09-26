@@ -1,3 +1,4 @@
+import { gameIsValid } from "./game";
 const TYPES = {
   GOAL: "goal",
   RULE: "rule",
@@ -64,5 +65,6 @@ export function applyCard(game, card) {
     default:
       break;
   }
+  gameIsValid(game);
   return game;
 }

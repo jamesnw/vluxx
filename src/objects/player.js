@@ -1,5 +1,6 @@
 import _ from "lodash";
 import { applyCard } from "./cards";
+import { gameIsValid } from "./game";
 export function dealCard(game, index) {
   index = index === undefined ? game.activePlayer : index;
   const card = game.deck.shift();
@@ -16,6 +17,7 @@ export function playCard(game, card) {
   game.players[game.activePlayer].hand = hand;
   game.turn.playsRemaining = game.turn.playsRemaining - 1;
   game = applyCard(game, card);
+  gameIsValid(game);
   return game;
 }
 
@@ -27,11 +29,13 @@ export function startTurn(game) {
   game.turn = {
     playsRemaining: game.constantRules.play
   };
+  gameIsValid(game);
   return game;
 }
 
 export function endTurn(game) {
   game.turn = {};
   game.activePlayer = (game.activePlayer + 1) % game.players.length;
+  gameIsValid(game);
   return game;
 }

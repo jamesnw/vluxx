@@ -1,6 +1,8 @@
 import { cards } from "./cards";
 import { dealCard } from "./player";
+import schema from "./gameSchema.json";
 import _ from "lodash";
+import Ajv from "ajv";
 
 export function newGame(name) {
   return {
@@ -25,5 +27,17 @@ export function startGame(game) {
     });
   }
   game.activePlayer = 0;
+  gameIsValid(game);
   return game;
+}
+var ajv = new Ajv(); // options can be passed, e.g. {allErrors: true}
+export const gameValidator = ajv.compile(schema);
+
+export function gameIsValid(game) {
+  var valid = gameValidator(game);
+  if (!valid) {
+    throw new Error("Invalid game", gameValidator.errors);
+  } else {
+    console.log("valid!");
+  }
 }
