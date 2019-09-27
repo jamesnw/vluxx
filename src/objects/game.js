@@ -27,6 +27,7 @@ export function startGame(game) {
     });
   }
   game.activePlayer = 0;
+  game.discard = [];
   gameIsValid(game);
   return game;
 }
@@ -38,7 +39,9 @@ export const gameValidator = ajv.compile(schema);
 export function gameIsValid(game) {
   var valid = gameValidator(game);
   if (!valid) {
-    throw new Error("Invalid game", gameValidator.errors);
+    // eslint-disable-next-line
+    console.log(gameValidator.errors);
+    throw new Error("Invalid game");
   }
 }
 export function playerHasKeepers(player, cards) {

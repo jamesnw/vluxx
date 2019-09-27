@@ -1,5 +1,5 @@
 <template>
-  <div v-if="state === 'won'">Game over! {{ game.winner }} won!</div>
+  <div v-if="gameState === 'won'">Game over! {{ game.winner }} won!</div>
   <div v-else>
     <div>Player's turn: {{ activePlayer }}</div>
     <div v-if="userIsActive">

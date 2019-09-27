@@ -34,7 +34,7 @@ export function startTurn(game) {
 }
 
 export function endTurn(game) {
-  game.turn = {};
+  game.turn = { playsRemaining: null };
   game.activePlayer = (game.activePlayer + 1) % game.players.length;
   gameIsValid(game);
   return game;

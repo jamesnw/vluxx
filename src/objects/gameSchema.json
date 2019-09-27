@@ -1,104 +1,98 @@
 {
-	"type": "object",
-	"definitions": {
-		"card": {
-			"type": "object",
-			"properties": {
-				"title": {"type": "string"},
-				"type": {"type": "string"}
-			},
-			"required": ["title", "type"]
-		},
-		"player": {
-				"type": "object",
-				"properties": {
-				  "hand": {
-					"type": "array",
-					"items": [{
-						"$ref": "#/definitions/card"
-					  }]
-				  },
-				  "name": {
-					"type": "string"
-				  }
-				},
-				"required": [
-				  "hand",
-				  "name"
-				]
-		}
-	},
-	"properties": {
-	  "activePlayer": {
-		"type": "integer"
-	  },
-	  "constantRules": {
-		"type": "object",
-		"properties": {
-		  "draw": {
-			"type": "integer"
-		  },
-		  "play": {
-			"type": "integer"
-		  }
-		},
-		"required": [
-		  "draw",
-		  "play"
-		]
-	  },
-	  "deck": {
-		"type": "array",
-		"items": [
-		  {
-			"$ref": "#/definitions/card"
-		  }
-		]
-	  },
-	  "discard": {
-		"type": "array",
-		"items": [{
-			"$ref": "#/definitions/card"
-		  }]
-	  },
-	  "name": {
-		"type": "string"
-	  },
-	  "players": {
-		"type": "array",
-		"items": [
-		  {"$ref": "#/definitions/player"}
-		]
-	  },
-	  "rules": {
-		"type": "array",
-		"items": {}
-	  },
-	  "state": {
-		"type": "string",
-		"enum": ["started", "won"]
-	  },
-	  "turn": {
-		"type": "object",
-		"properties": {
-		  "playsRemaining": {
-			"type": "integer"
-		  }
-		},
-		"required": [
-		  "playsRemaining"
-		]
-	  }
-	},
-	"required": [
-	  "activePlayer",
-	  "constantRules",
-	  "deck",
-	  "discard",
-	  "name",
-	  "players",
-	  "rules",
-	  "state",
-	  "turn"
-	]
-  }
+  "type": "object",
+  "definitions": {
+    "card": {
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "type": { "type": "string" }
+      },
+      "required": ["title", "type"]
+    },
+    "player": {
+      "type": "object",
+      "properties": {
+        "hand": {
+          "type": "array",
+          "items": [
+            {
+              "$ref": "#/definitions/card"
+            }
+          ]
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": ["hand", "name"]
+    }
+  },
+  "properties": {
+    "activePlayer": {
+      "type": "integer"
+    },
+    "constantRules": {
+      "type": "object",
+      "properties": {
+        "draw": {
+          "type": "integer"
+        },
+        "play": {
+          "type": "integer"
+        }
+      },
+      "required": ["draw", "play"]
+    },
+    "deck": {
+      "type": "array",
+      "items": [
+        {
+          "$ref": "#/definitions/card"
+        }
+      ]
+    },
+    "discard": {
+      "type": "array",
+      "items": [
+        {
+          "$ref": "#/definitions/card"
+        }
+      ]
+    },
+    "name": {
+      "type": "string"
+    },
+    "players": {
+      "type": "array",
+      "items": [{ "$ref": "#/definitions/player" }]
+    },
+    "rules": {
+      "type": "array",
+      "items": {}
+    },
+    "state": {
+      "type": "string",
+      "enum": ["started", "won"]
+    },
+    "turn": {
+      "type": "object",
+      "properties": {
+        "playsRemaining": {
+          "type": ["integer", "null"]
+        }
+      },
+      "required": ["playsRemaining"]
+    }
+  },
+  "required": [
+    "activePlayer",
+    "constantRules",
+    "deck",
+    "discard",
+    "name",
+    "players",
+    "rules",
+    "state",
+    "turn"
+  ]
+}
