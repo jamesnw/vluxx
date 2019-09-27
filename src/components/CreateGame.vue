@@ -1,8 +1,9 @@
 <template>
   <div>
     <h2>Create Game</h2>
-    <label>Name:</label><input v-model="name" />
-    <button @click="create">Create</button>
+    <label>Name:</label>
+    <input v-model="name" />
+    <button @click="create" :disabled="!name">Create</button>
   </div>
 </template>
 
