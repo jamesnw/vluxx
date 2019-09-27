@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h2>Existing games</h2>
     <single-game v-for="game in games" :key="game.name" :game="game" />
   </div>
 </template>

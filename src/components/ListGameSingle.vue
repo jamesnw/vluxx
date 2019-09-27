@@ -1,7 +1,7 @@
 <template>
   <div>
     {{ name }}: {{ playerCount }}
-    <button @click="join" :disabled="!user">Join</button>
+    <button @click="join" :disabled="disableJoin">Join</button>
     <button @click="deleteGame">Delete</button>
     <div v-if="game.state === 'started'">
       <ActiveGame :game="game" />
@@ -24,6 +24,14 @@ export default {
     },
     playerCount() {
       return this.game.players ? this.game.players.length : 0;
+    },
+    playerNames() {
+      if (!this.game.players) return [];
+      return this.game.players.map(player => player.name);
+    },
+    disableJoin() {
+      if (!this.user) return true;
+      return this.playerNames.includes(this.user);
     }
   },
   components: { ActiveGame },
