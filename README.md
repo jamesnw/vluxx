@@ -1,10 +1,8 @@
 # vluxx
 
-## Changing play/rules
+A game inspired but _not actually_ [Fluxx](https://www.looneylabs.com/games/fluxx). 
 
-All game actions are functions that receive the game object, mutate the game object, and return the new game object. All functions have access to the entire game, so they can mutate all parts, from the rules to hands, in whatever way they choose.
-
-Before returning, all game actions _must_ call `gameIsValid(game)`. This asserts that any changes within the game action did not break the game object.
+Read the CONTRIBUTING docs for info on how this works.
 
 ## Project setup
 ```
