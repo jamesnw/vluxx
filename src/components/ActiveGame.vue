@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div v-if="state === 'won'">Game over! {{ game.winner }} won!</div>
+  <div v-else>
     <div>Player's turn: {{ activePlayer }}</div>
     <div v-if="userIsActive">
       <button @click="start">Start turn</button>
@@ -36,6 +37,9 @@ export default {
     },
     canPlay() {
       return this.userIsActive && this.playsRemaining > 0;
+    },
+    gameState() {
+      return this.game.state;
     }
   },
   methods: {

@@ -1,4 +1,4 @@
-import { gameIsValid } from "./game";
+import { gameIsValid, checkForWinner } from "./game";
 const TYPES = {
   GOAL: "goal",
   RULE: "rule",
@@ -11,7 +11,7 @@ export const cards = [
     goal: ["Chocolate", "Cookie"]
   },
   { title: "Bedtime snack", type: TYPES.GOAL, goal: ["Milk", "Cookie"] },
-  { title: "Bedtime snack 1", type: TYPES.GOAL, goal: ["Milk", "Cookie"] },
+  { title: "Chocolate Stout", type: TYPES.GOAL, goal: ["Chocolate", "Beer"] },
   { title: "Bedtime snack 2", type: TYPES.GOAL, goal: ["Milk", "Cookie"] },
   { title: "Bedtime snack 3", type: TYPES.GOAL, goal: ["Milk", "Cookie"] },
   { title: "Bedtime snack 4", type: TYPES.GOAL, goal: ["Milk", "Cookie"] },
@@ -20,7 +20,7 @@ export const cards = [
   { title: "Chocolate", type: TYPES.KEEPER },
   { title: "Cookie", type: TYPES.KEEPER },
   { title: "Milk", type: TYPES.KEEPER },
-  { title: "Milk 1", type: TYPES.KEEPER },
+  { title: "Beer", type: TYPES.KEEPER },
   { title: "Milk2", type: TYPES.KEEPER },
   { title: "Milk3", type: TYPES.KEEPER },
   { title: "Milk4", type: TYPES.KEEPER },
@@ -65,6 +65,7 @@ export function applyCard(game, card) {
     default:
       break;
   }
+  game = checkForWinner(game);
   gameIsValid(game);
   return game;
 }

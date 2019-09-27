@@ -30,6 +30,8 @@ export function startGame(game) {
   gameIsValid(game);
   return game;
 }
+
+// Validation
 var ajv = new Ajv(); // options can be passed, e.g. {allErrors: true}
 export const gameValidator = ajv.compile(schema);
 
@@ -38,4 +40,27 @@ export function gameIsValid(game) {
   if (!valid) {
     throw new Error("Invalid game", gameValidator.errors);
   }
+}
+export function playerHasKeepers(player, cards) {
+  let { hand } = player;
+  let keepers = hand
+    .filter(card => card.type === "keeper")
+    .map(card => card.title);
+  let diff = _.difference(cards, keepers);
+  return diff.length === 0;
+}
+
+export function checkForWinner(game) {
+  let { goal } = game;
+  if (!goal) return game;
+  // Simple array of keepers needed
+  if (_.isArray(goal.goal)) {
+    game.players.forEach(player => {
+      if (playerHasKeepers(player, goal.goal)) {
+        game.state = "won";
+        game.winner = player.name;
+      }
+    });
+  }
+  return game;
 }

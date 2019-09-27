@@ -75,7 +75,8 @@
 		"items": {}
 	  },
 	  "state": {
-		"type": "string"
+		"type": "string",
+		"enum": ["started", "won"]
 	  },
 	  "turn": {
 		"type": "object",
