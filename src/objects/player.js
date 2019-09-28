@@ -1,11 +1,13 @@
 import _ from "lodash";
 import { applyCard } from "./cards";
 import { gameIsValid } from "./game";
+
 export function dealCard(game, index) {
   index = index === undefined ? game.activePlayer : index;
   const card = game.deck.shift();
   game.players[index].hand = game.players[index].hand || [];
   game.players[index].hand.push(card);
+  gameIsValid(game);
   return game;
 }
 

@@ -64,7 +64,7 @@
     },
     "players": {
       "type": "array",
-      "items": [{ "$ref": "#/definitions/player" }]
+      "items": { "$ref": "#/definitions/player" }
     },
     "rules": {
       "type": "array",
