@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`cards applyCard rules should apply new draw rule 1`] = `
+Object {
+  "activePlayer": 1,
+  "constantRules": Object {
+    "draw": 2,
+    "play": 1,
+  },
+  "deck": Array [],
+  "discard": Array [],
+  "name": "Foo",
+  "players": Array [
+    Object {
+      "hand": Array [],
+      "name": "Jasper",
+    },
+    Object {
+      "hand": Array [],
+      "name": "Forde",
+    },
+  ],
+  "rules": Array [],
+  "state": "started",
+  "turn": Object {
+    "playsRemaining": 1,
+  },
+}
+`;
+
+exports[`cards applyCard rules should apply new play rule 1`] = `
+Object {
+  "activePlayer": 1,
+  "constantRules": Object {
+    "draw": 1,
+    "play": 2,
+  },
+  "deck": Array [],
+  "discard": Array [],
+  "name": "Foo",
+  "players": Array [
+    Object {
+      "hand": Array [],
+      "name": "Jasper",
+    },
+    Object {
+      "hand": Array [],
+      "name": "Forde",
+    },
+  ],
+  "rules": Array [],
+  "state": "started",
+  "turn": Object {
+    "playsRemaining": 1,
+  },
+}
+`;
+
+exports[`cards applyCard should add keeper to player's keeper pile 1`] = `
+Object {
+  "activePlayer": 1,
+  "constantRules": Object {
+    "draw": 1,
+    "play": 1,
+  },
+  "deck": Array [],
+  "discard": Array [],
+  "name": "Foo",
+  "players": Array [
+    Object {
+      "hand": Array [],
+      "name": "Jasper",
+    },
+    Object {
+      "hand": Array [],
+      "keepers": Array [
+        Object {
+          "title": "Chocolate",
+          "type": "keeper",
+        },
+      ],
+      "name": "Forde",
+    },
+  ],
+  "rules": Array [],
+  "state": "started",
+  "turn": Object {
+    "playsRemaining": 1,
+  },
+}
+`;
+
+exports[`cards applyCard should set goal 1`] = `
+Object {
+  "activePlayer": 1,
+  "constantRules": Object {
+    "draw": 1,
+    "play": 1,
+  },
+  "deck": Array [],
+  "discard": Array [],
+  "goal": Object {
+    "goal": Array [
+      "Hammer",
+      "Screwdriver",
+    ],
+    "title": "Tools",
+    "type": "goal",
+  },
+  "name": "Foo",
+  "players": Array [
+    Object {
+      "hand": Array [],
+      "name": "Jasper",
+    },
+    Object {
+      "hand": Array [],
+      "name": "Forde",
+    },
+  ],
+  "rules": Array [],
+  "state": "started",
+  "turn": Object {
+    "playsRemaining": 1,
+  },
+}
+`;

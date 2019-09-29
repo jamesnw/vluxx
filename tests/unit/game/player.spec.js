@@ -1,28 +1,10 @@
 import { dealCard, playCard, startTurn, endTurn } from "@/objects/player";
 import * as gameObject from "@/objects/game";
+import { startedGame } from "../fixtures/game";
 describe("player", () => {
   let game;
   beforeEach(() => {
-    game = {
-      name: "Foo",
-      players: [
-        {
-          name: "Jasper",
-          hand: []
-        },
-        {
-          name: "Forde",
-          hand: []
-        }
-      ],
-      rules: [],
-      deck: [],
-      discard: [],
-      state: "started",
-      activePlayer: 1,
-      constantRules: { draw: 1, play: 1 },
-      turn: { playsRemaining: 1 }
-    };
+    game = startedGame();
   });
   describe("dealCard", () => {
     let active;
