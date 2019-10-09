@@ -3,9 +3,9 @@
   <div v-else>
     <div>Player's turn: {{ activePlayer }}</div>
     <div v-if="userIsActive">
-      <button @click="start">Start turn</button>
+      <v-btn color="primary" dark @click="start">Start turn</v-btn>
       Remaining: {{ playsRemaining }}
-      <button @click="end">End turn</button>
+      <v-btn color="primary" dark @click="end">End turn</v-btn>
     </div>
     <div v-else>Waiting...</div>
     <UserHand :game="game" :canPlay="canPlay" />

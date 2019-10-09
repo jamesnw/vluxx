@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <label>Your name:</label><input :value="name" @input="updateName" />
-  </div>
+  <v-form>
+    <v-text-field label="Your name" :value="name" @input="updateName" />
+  </v-form>
 </template>
 
 <script>
@@ -13,8 +13,8 @@ export default {
     })
   },
   methods: {
-    updateName(e) {
-      this.$store.commit("updateName", e.target.value);
+    updateName(value) {
+      this.$store.commit("updateName", value);
     }
   }
 };

@@ -2,9 +2,9 @@
   <div>
     <h3>Hand</h3>
     <div v-for="card in hand" :key="card.title">
-      <button :disabled="!canPlay" @click="playCard(card)">
+      <v-btn color="primary" dark :disabled="!canPlay" @click="playCard(card)">
         {{ card.title }}
-      </button>
+      </v-btn>
     </div>
     <h3>Keepers</h3>
     <div v-for="card in keepers" :key="card.title">
