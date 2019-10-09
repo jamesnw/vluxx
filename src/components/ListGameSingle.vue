@@ -1,12 +1,14 @@
 <template>
   <div>
     {{ name }}: {{ playerCount }}
-    <button @click="join" :disabled="disableJoin">Join</button>
-    <button @click="deleteGame">Delete</button>
+    <v-btn color="primary" dark @click="join" :disabled="disableJoin"
+      >Join</v-btn
+    >
+    <v-btn color="primary" dark @click="deleteGame">Delete</v-btn>
     <div v-if="game.state === 'started'">
       <ActiveGame :game="game" />
     </div>
-    <button @click="start" v-else>Start</button>
+    <v-btn color="primary" dark @click="start" v-else>Start</v-btn>
   </div>
 </template>
 
