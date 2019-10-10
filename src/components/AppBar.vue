@@ -5,19 +5,15 @@
       <span class="font-weight-light ml-2">it's a card game</span>
     </v-toolbar-title>
     <v-spacer />
-    <v-btn
-      text
-      href="https://github.com/vuetifyjs/vuetify/releases/latest"
-      target="_blank"
-    >
-      <span class="mr-2">Latest Release</span>
-    </v-btn>
+    <player-info-button />
   </v-app-bar>
 </template>
 
 <script>
+import PlayerInfoButton from "./PlayerInfoButton";
 export default {
-  name: "AppBar"
+  name: "AppBar",
+  components: { PlayerInfoButton }
 };
 </script>
 
