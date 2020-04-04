@@ -20,14 +20,17 @@ export function startGame(game) {
     play: 1
   };
   game.turn = { playsRemaining: 0 };
+  game.activePlayer = 0;
+  game.discard = [];
+  game.players.forEach((player, index) => {
+    game.players[index].hand = [];
+  });
   // deal
   for (let index = 0; index < 3; index++) {
     game.players.forEach((player, index) => {
       dealCard(game, index);
     });
   }
-  game.activePlayer = 0;
-  game.discard = [];
   gameIsValid(game);
   return game;
 }

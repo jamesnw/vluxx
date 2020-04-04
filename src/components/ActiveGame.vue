@@ -3,9 +3,11 @@
   <div v-else>
     <div>Player's turn: {{ activePlayer }}</div>
     <div v-if="userIsActive">
-      <v-btn color="primary" dark @click="start">Start turn</v-btn>
+      <v-btn color="primary" dark @click="start" v-if="canStart"
+        >Start turn</v-btn
+      >
       Remaining: {{ playsRemaining }}
-      <v-btn color="primary" dark @click="end">End turn</v-btn>
+      <v-btn color="primary" dark @click="end" v-if="canEnd">End turn</v-btn>
     </div>
     <div v-else>Waiting...</div>
     <UserHand :game="game" :canPlay="canPlay" />
@@ -31,6 +33,12 @@ export default {
     },
     userIsActive() {
       return this.user === this.activePlayer;
+    },
+    canStart() {
+      return this.userIsActive && this.playsRemaining === null;
+    },
+    canEnd() {
+      return this.userIsActive && !this.canStart;
     },
     playsRemaining() {
       return this.game.turn ? this.game.turn.playsRemaining : 0;
